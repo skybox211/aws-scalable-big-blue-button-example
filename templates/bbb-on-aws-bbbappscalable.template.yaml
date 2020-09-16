@@ -431,6 +431,9 @@ Resources:
           # change the messages
           sed 's+Welcome to <b>%%CONFNAME%%</b>!<br><br>For help on using BigBlueButton see these (short) <a href="event:http://www.bigbluebutton.org/html5"><u>tutorial videos</u></a>.<br><br>To join the audio bridge click the phone button. Use a headset to avoid causing background noise for others.+Welcome to <b>%%CONFNAME%%</b>!<br><br>To join the audio bridge click the phone button. Use a headset to avoid causing background noise for others+' /usr/share/bbb-web/WEB-INF/classes/bigbluebutton.properties
           sed 's+This server is running <a href="http://docs.bigbluebutton.org/" target="_blank"><u>BigBlueButton</u></a>.+This server is running NoteMyMail Live+' /usr/share/bbb-web/WEB-INF/classes/bigbluebutton.properties
+          rm /var/www/bigbluebutton-default/default.pptx
+          rm /var/www/bigbluebutton-default/default.pdf
+          rm /var/www/bigbluebutton-default/favicon.ico
           
           wget --tries=10  https://raw.githubusercontent.com/blindsidenetworks/scalelite/master/bigbluebutton/scalelite_post_publish.rb -O /usr/local/bigbluebutton/core/scripts/post_publish/scalelite_post_publish.rb
           aws s3 cp s3://${BBBStackBucketStack}/scalelite-config.yml /usr/local/bigbluebutton/core/scripts/scalelite.yml
